@@ -4,25 +4,40 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "products")
+@Table
 public class ProductsEntity {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @SequenceGenerator(
+            name = "product_sequence",
+            sequenceName = "product_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "product_sequence"
+    )
+
+
     private long id;
-    @Column(name = "product_name")
+
     private String productName;
-    @Column(name = "prince")
+
     private int price;
-    @Column(name = "description")
+
     private String description;
-    @Column(name = "quantity")
+
     private int quantityInStock;
 
     public ProductsEntity(long id, String productName, int price, String description, int quantityInStock) {
 
         this.id = id;
+        this.productName = productName;
+        this.price = price;
+        this.description = description;
+        this.quantityInStock = quantityInStock;
+    }
+
+    public ProductsEntity(String productName, int price, String description, int quantityInStock) {
         this.productName = productName;
         this.price = price;
         this.description = description;
@@ -67,5 +82,16 @@ public class ProductsEntity {
 
     public void setQuantityInStock(int quantityInStock) {
         this.quantityInStock = quantityInStock;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductsEntity{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", quantityInStock=" + quantityInStock +
+                '}';
     }
 }
