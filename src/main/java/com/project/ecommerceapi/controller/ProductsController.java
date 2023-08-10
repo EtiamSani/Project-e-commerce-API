@@ -18,9 +18,9 @@ public class ProductsController {
         this.productsService = productsService;
     }
     @GetMapping
-    public List<ProductsEntity> findAllProducts(){
-        logger.info("Fetching all products");
-        return productsService.findAllProducts();
+    public List<ProductsEntity> findFirstThreeProducts(@RequestParam(defaultValue = "0") int page){
+        logger.info("Fetching first three products, page: {}", page);
+        return productsService.findFirstThreeProducts(page).getContent();
     }
 
     @PostMapping

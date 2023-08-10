@@ -3,6 +3,9 @@ package com.project.ecommerceapi.service.implementation;
 import com.project.ecommerceapi.entity.ProductsEntity;
 import com.project.ecommerceapi.repository.ProductsRepository;
 import com.project.ecommerceapi.service.ProductsService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +21,7 @@ public class ProductServiceImpl implements ProductsService {
 
     @Override
     public List<ProductsEntity> findAllProducts() {
-        return productsRepository.findAll();
+        return (List<ProductsEntity>) productsRepository.findAll();
     }
 
     @Override
@@ -26,4 +29,9 @@ public class ProductServiceImpl implements ProductsService {
         return productsRepository.save(productsEntity);
     }
 
+    @Override
+    public Page<ProductsEntity> findFirstThreeProducts(int pageNumber) {
+        Pageable pageable = PageRequest.of(pageNumber, 5);
+        return productsRepository.findAll(pageable);
+    }
 }
