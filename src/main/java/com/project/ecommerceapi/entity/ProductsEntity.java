@@ -1,24 +1,21 @@
 package com.project.ecommerceapi.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+import java.util.UUID;
 
 
 @Entity
 @Table
 public class ProductsEntity {
     @Id
-    @SequenceGenerator(
-            name = "product_sequence",
-            sequenceName = "product_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "product_sequence"
-    )
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
 
-    @Column(name = "id")
-    private long id;
+
+    @Column(name = "id", columnDefinition = "UUID")
+    private UUID id;
 
     @Column(name = "name")
     private String productName;
@@ -32,7 +29,7 @@ public class ProductsEntity {
     @Column(name = "qte")
     private int quantityInStock;
 
-    public ProductsEntity(long id, String productName, int price, String description, int quantityInStock) {
+    public ProductsEntity(UUID id, String productName, int price, String description, int quantityInStock) {
 
         this.id = id;
         this.productName = productName;
@@ -52,11 +49,11 @@ public class ProductsEntity {
         // Constructeur par défaut requis par Jackson pour la désérialisation
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
