@@ -4,6 +4,9 @@ import com.project.ecommerceapi.entity.ProductsEntity;
 import com.project.ecommerceapi.service.ProductsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,10 +21,12 @@ public class ProductsController {
         this.productsService = productsService;
     }
     @GetMapping
-    public List<ProductsEntity> findFirstThreeProducts(@RequestParam(defaultValue = "0") int page){
-        logger.info("Fetching first three products, page: {}", page);
-        return productsService.findFirstThreeProducts(page).getContent();
+    public Page<ProductsEntity> findProductsPage(@RequestParam(defaultValue = "0") int page) {
+        logger.info("Fetching products, page: {}", page);
+        Pageable pageable = PageRequest.of(page, 10); // Nombre d'éléments par page, ici 10
+        return productsService.findProductsPageAndSort(pageable);
     }
+
 
     @PostMapping
     public ProductsEntity saveProducts(@RequestBody ProductsEntity productsEntity){

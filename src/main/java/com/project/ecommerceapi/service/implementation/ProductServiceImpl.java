@@ -4,7 +4,6 @@ import com.project.ecommerceapi.entity.ProductsEntity;
 import com.project.ecommerceapi.repository.ProductsRepository;
 import com.project.ecommerceapi.service.ProductsService;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +29,8 @@ public class ProductServiceImpl implements ProductsService {
     }
 
     @Override
-    public Page<ProductsEntity> findFirstThreeProducts(int pageNumber) {
-        Pageable pageable = PageRequest.of(pageNumber, 5);
+    public Page<ProductsEntity> findProductsPageAndSort(Pageable pageable) {
         return productsRepository.findAll(pageable);
     }
+
 }
