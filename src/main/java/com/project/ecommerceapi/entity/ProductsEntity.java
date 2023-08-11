@@ -7,7 +7,7 @@ import java.util.UUID;
 
 
 @Entity
-@Table
+@Table(name = "products")
 public class ProductsEntity {
     @Id
     @GeneratedValue(generator = "uuid2")
@@ -17,7 +17,7 @@ public class ProductsEntity {
     @Column(name = "id", columnDefinition = "UUID")
     private UUID id;
 
-    @Column(name = "name")
+    @Column(name = "productname")
     private String productName;
 
     @Column(name = "price")
@@ -26,7 +26,7 @@ public class ProductsEntity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "qte")
+    @Column(name = "quantityinstock")
     private int quantityInStock;
 
     public ProductsEntity(UUID id, String productName, int price, String description, int quantityInStock) {
