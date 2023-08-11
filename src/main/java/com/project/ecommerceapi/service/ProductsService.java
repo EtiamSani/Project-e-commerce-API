@@ -9,9 +9,8 @@ import java.util.List;
 public interface ProductsService {
     List<ProductsEntity> findAllProducts();
 
-    static ProductsEntity saveProducts(ProductsEntity productsEntity) {
-        return null;
-    }
+    ProductsEntity saveProducts(ProductsEntity productsEntity);
+
 
     Page<ProductsEntity> findProductsPageAndSort(Pageable pageable);
 

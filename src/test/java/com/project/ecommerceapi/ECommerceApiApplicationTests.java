@@ -3,6 +3,7 @@ package com.project.ecommerceapi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.ecommerceapi.controller.ProductsController;
 import com.project.ecommerceapi.entity.ProductsEntity;
+import com.project.ecommerceapi.repository.ProductsRepository;
 import com.project.ecommerceapi.service.ProductsService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,10 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultMatcher;
+
+import static org.hamcrest.Matchers.notNullValue;
+import static org.mockito.ArgumentMatchers.any;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +32,7 @@ public class ECommerceApiApplicationTests {
 
 	@Autowired
 	private MockMvc mockMvc;
+	ProductsRepository productsRepository;
 
 	@MockBean
 	private ProductsService productsService;
@@ -71,17 +77,22 @@ public class ECommerceApiApplicationTests {
 		productToSave.setQuantityInStock(8);
 
 		// Mock the behavior of the service to return the saved product entity
-		when(ProductsService.saveProducts(productToSave)).thenReturn(productToSave);
+		when(productsService.saveProducts(productToSave))
+				.thenReturn(productToSave);
+
 
 		// Perform the request and validate the response
-		mockMvc.perform(post("/api/products")
-						.contentType("application/json")
+		mockMvc.perform(post("/api/v1/products")
+						.contentType(MediaType.APPLICATION_JSON)
 						.content(new ObjectMapper().writeValueAsString(productToSave)))
 				.andExpect(status().isOk())
-				.andExpect(status().isOk());
-	}
+				.andExpect(jsonPath("$.productName").value("controller"))
+				.andExpect(jsonPath("$.price").value(77))
+				.andExpect(jsonPath("$.description").value("testing controller"))
+				.andExpect(jsonPath("$.quantityInStock").value(8));
 
-	// Add more test methods for other controller methods
+		verify(productsService, times(1)).saveProducts(productToSave);
+	}
 
 }
 

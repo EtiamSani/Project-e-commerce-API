@@ -38,6 +38,6 @@ public class ProductsController {
     @PostMapping
     public ProductsEntity saveProducts(@RequestBody ProductsEntity productsEntity){
         logger.info("Saving product: {}", productsEntity);
-        return ProductsService.saveProducts(productsEntity);
+        return productsService.saveProducts(productsEntity);
     }
 }
