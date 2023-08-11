@@ -38,16 +38,10 @@ public class ProductsEntity {
         this.quantityInStock = quantityInStock;
     }
 
-    public ProductsEntity(String productName, int price, String description, int quantityInStock) {
-        this.productName = productName;
-        this.price = price;
-        this.description = description;
-        this.quantityInStock = quantityInStock;
-    }
-
     public ProductsEntity() {
         // Constructeur par défaut requis par Jackson pour la désérialisation
     }
+
 
     public UUID getId() {
         return id;

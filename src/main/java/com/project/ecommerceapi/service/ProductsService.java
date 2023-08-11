@@ -8,7 +8,11 @@ import java.util.List;
 
 public interface ProductsService {
     List<ProductsEntity> findAllProducts();
-    ProductsEntity saveProducts(ProductsEntity productsEntity);
+
+    static ProductsEntity saveProducts(ProductsEntity productsEntity) {
+        return null;
+    }
+
     Page<ProductsEntity> findProductsPageAndSort(Pageable pageable);
 
 }

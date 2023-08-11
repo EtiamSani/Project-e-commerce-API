@@ -24,13 +24,20 @@ public class ProductsController {
     public Page<ProductsEntity> findProductsPage(@RequestParam(defaultValue = "0") int page) {
         logger.info("Fetching products, page: {}", page);
         Pageable pageable = PageRequest.of(page, 10); // Nombre d'éléments par page, ici 10
-        return productsService.findProductsPageAndSort(pageable);
+        Page<ProductsEntity> productsPage = productsService.findProductsPageAndSort(pageable);
+
+        // Log each fetched product
+        productsPage.forEach(product -> {
+            logger.info("Fetched product: {}", product);
+        });
+
+        return productsPage;
     }
 
 
     @PostMapping
     public ProductsEntity saveProducts(@RequestBody ProductsEntity productsEntity){
         logger.info("Saving product: {}", productsEntity);
-        return productsService.saveProducts(productsEntity);
+        return ProductsService.saveProducts(productsEntity);
     }
 }
