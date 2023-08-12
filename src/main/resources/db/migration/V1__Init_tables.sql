@@ -1,7 +1,20 @@
 CREATE TABLE Products (
     id UUID PRIMARY KEY,
-    productName VARCHAR(255),
+    productName TEXT,
     price INT,
     description TEXT,
-    quantityInStock INT
+    quantityInStock INT,
+    category TEXT,
+    brand TEXT,
+    color TEXT,
+    size TEXT,
+    material TEXT,
+    gender TEXT,
+    discountPrice INT,
+    isNewArrival BOOLEAN,
+    isFeatured BOOLEAN,
+    isBestSeller BOOLEAN,
+    tags TEXT,
+    images TEXT,
+    isAvailable BOOLEAN
 );
