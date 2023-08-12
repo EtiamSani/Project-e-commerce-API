@@ -40,10 +40,8 @@ public class ECommerceApiApplicationTests {
 	public void testGetAllProducts() throws Exception {
 		// Create a list of sample ProductsEntity objects
 		List<ProductsEntity> productsList = new ArrayList<>();
-		productsList.add(new ProductsEntity(UUID.fromString("e1b85166-ac14-49d8-96fb-0783dfaac9ad"), "test", 50, "testdescription", 2));
-		productsList.add(new ProductsEntity(UUID.fromString("47896b26-b0c9-4877-90da-38749b9efebf"), "test", 50, "testdescription", 2));
-		productsList.add(new ProductsEntity(UUID.fromString("47896b26-b0c9-4877-90da-38749b9efebf"), "test", 50, "testdescription", 2));
-		productsList.add(new ProductsEntity(UUID.fromString("47896b26-b0c9-4877-90da-38749b9efebf"), "test", 50, "testdescription", 2));
+		productsList.add(new ProductsEntity(UUID.fromString("47896b26-b0c9-4877-90da-38749b9efebf"),"Chemise en coton",30,"Chemise en coton pour hommes",50,"Vêtements","Ma Marque","Blanc","M","Coton","Hommes",0,true,true,false,"tshirt","http://example.com/images/chemise-coton-1.jpg",true));
+
 
 
 		// Mock the behavior of the service
@@ -56,10 +54,10 @@ public class ECommerceApiApplicationTests {
 				.andExpect(status().isOk())
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$.content.length()").value(productsList.size())) // Validate the number of items in the list
-				.andExpect(jsonPath("$.content[0].id").value("e1b85166-ac14-49d8-96fb-0783dfaac9ad")) // Validate the first item's id
-				.andExpect(jsonPath("$.content[0].productName").value("test")) // Validate the first item's name
-				.andExpect(jsonPath("$.content[0].price").value(50)) // Validate the first item's price
-				.andExpect(jsonPath("$.content[0].description").value("testdescription")); // Validate the first item's description
+				.andExpect(jsonPath("$.content[0].id").value("47896b26-b0c9-4877-90da-38749b9efebf")) // Validate the first item's id
+				.andExpect(jsonPath("$.content[0].productName").value("Chemise en coton")) // Validate the first item's name
+				.andExpect(jsonPath("$.content[0].price").value(30)) // Validate the first item's price
+				.andExpect(jsonPath("$.content[0].description").value("Chemise en coton pour hommes")); // Validate the first item's description
 
 
 		// Verify that the service method was called with the correct arguments
@@ -69,7 +67,7 @@ public class ECommerceApiApplicationTests {
 	@Test
 	public void testSaveProduct() throws Exception {
 		// Create the product entity
-		ProductsEntity productToSave = new ProductsEntity("controller", 666, "lastName4", 9);
+		ProductsEntity productToSave = new ProductsEntity("Chemise en coton",30,"Chemise en coton pour hommes",50,"Vêtements","Ma Marque","Blanc","M","Coton","Hommes",0,true,true,false,"tshirt","http://example.com/images/chemise-coton-1.jpg",true);
 
 		// Convert the product entity to JSON using ObjectMapper
 		ObjectMapper objectMapper = new ObjectMapper();
