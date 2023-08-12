@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,8 +38,10 @@ public class ProductsController {
 
 
     @PostMapping
-    public ProductsEntity saveProducts(@RequestBody ProductsEntity productsEntity){
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<ProductsEntity> saveProducts(@RequestBody ProductsEntity productsEntity){
         logger.info("Saving product: {}", productsEntity);
-        return productsService.saveProducts(productsEntity);
+        ProductsEntity savedProduct = productsService.saveProducts(productsEntity);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
     }
 }

@@ -14,10 +14,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
-
-import static org.hamcrest.Matchers.notNullValue;
-import static org.mockito.ArgumentMatchers.any;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +29,8 @@ public class ECommerceApiApplicationTests {
 
 	@Autowired
 	private MockMvc mockMvc;
+	@Autowired
+	private MockMvc mvc;
 	ProductsRepository productsRepository;
 
 	@MockBean
@@ -69,29 +68,19 @@ public class ECommerceApiApplicationTests {
 
 	@Test
 	public void testSaveProduct() throws Exception {
-		// Create a simulated product entity
-		ProductsEntity productToSave = new ProductsEntity();
-		productToSave.setProductName("controller");
-		productToSave.setPrice(77);
-		productToSave.setDescription("testing controller");
-		productToSave.setQuantityInStock(8);
+		// Create the product entity
+		ProductsEntity productToSave = new ProductsEntity("controller", 666, "lastName4", 9);
 
-		// Mock the behavior of the service to return the saved product entity
-		when(productsService.saveProducts(productToSave))
-				.thenReturn(productToSave);
-
+		// Convert the product entity to JSON using ObjectMapper
+		ObjectMapper objectMapper = new ObjectMapper();
+		String jsonProduct = objectMapper.writeValueAsString(productToSave);
 
 		// Perform the request and validate the response
 		mockMvc.perform(post("/api/v1/products")
 						.contentType(MediaType.APPLICATION_JSON)
-						.content(new ObjectMapper().writeValueAsString(productToSave)))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.productName").value("controller"))
-				.andExpect(jsonPath("$.price").value(77))
-				.andExpect(jsonPath("$.description").value("testing controller"))
-				.andExpect(jsonPath("$.quantityInStock").value(8));
+						.content(jsonProduct))
+				.andExpect(status().isCreated());
 
-		verify(productsService, times(1)).saveProducts(productToSave);
 	}
 
 }

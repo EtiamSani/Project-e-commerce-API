@@ -17,7 +17,7 @@ public class ProductsEntity {
     @Column(name = "id", columnDefinition = "UUID")
     private UUID id;
 
-    @Column(name = "productname")
+    @Column(name = "product_name")
     private String productName;
 
     @Column(name = "price")
