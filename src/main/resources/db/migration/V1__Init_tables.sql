@@ -9,7 +9,6 @@ CREATE TABLE Products (
     category TEXT,
     brand TEXT,
     color TEXT,
-    size TEXT,
     material TEXT,
     gender TEXT,
     discountPrice INT,
@@ -20,3 +19,17 @@ CREATE TABLE Products (
     images TEXT,
     isAvailable BOOLEAN
 );
+
+CREATE TABLE Sizes (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    size TEXT
+);
+
+CREATE TABLE Product_have_sizes (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    product_id UUID REFERENCES Products(id),
+    size_id UUID REFERENCES Sizes(id)
+);
+
+
+
