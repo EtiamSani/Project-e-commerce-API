@@ -1,7 +1,6 @@
 package com.project.ecommerceapi.controller;
 
 import com.project.ecommerceapi.entity.ProductsEntity;
-import com.project.ecommerceapi.projection.ProductsAndSizesProjection;
 import com.project.ecommerceapi.service.ProductsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +38,6 @@ public class ProductsController {
 
         return productsPage;
     }
-
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

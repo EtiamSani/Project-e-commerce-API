@@ -1,7 +1,6 @@
 package com.project.ecommerceapi.service;
 
 import com.project.ecommerceapi.entity.ProductsEntity;
-import com.project.ecommerceapi.projection.ProductsAndSizesProjection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

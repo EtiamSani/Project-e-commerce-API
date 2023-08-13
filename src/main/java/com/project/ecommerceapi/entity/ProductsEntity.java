@@ -1,18 +1,17 @@
 package com.project.ecommerceapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
 
+@JsonPropertyOrder({ "id", "productName", "price", "description", "quantityInStock", "category", "brand", "color", "material", "gender", "discountPrice", "isNewArrival", "isFeatured", "isBestSeller", "tags", "images", "isAvailable", "sizes" })
 @Entity
 @Table(name = "products")
 public class ProductsEntity {
-
-
 
 
     @JoinTable(
