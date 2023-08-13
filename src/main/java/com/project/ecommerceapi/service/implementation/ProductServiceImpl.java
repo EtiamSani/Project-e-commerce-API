@@ -1,6 +1,7 @@
 package com.project.ecommerceapi.service.implementation;
 
 import com.project.ecommerceapi.entity.ProductsEntity;
+import com.project.ecommerceapi.projection.ProductsAndSizesProjection;
 import com.project.ecommerceapi.repository.ProductsRepository;
 import com.project.ecommerceapi.service.ProductsService;
 import org.springframework.data.domain.Page;
@@ -8,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProductServiceImpl implements ProductsService {
@@ -30,6 +32,11 @@ public class ProductServiceImpl implements ProductsService {
 
     @Override
     public Page<ProductsEntity> findProductsPageAndSort(Pageable pageable) {
+        return productsRepository.findAll(pageable);
+    }
+
+
+    public Page<ProductsEntity> findProductsWithSizesPageAndSort(Pageable pageable) {
         return productsRepository.findAll(pageable);
     }
 

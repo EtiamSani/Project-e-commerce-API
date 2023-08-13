@@ -1,6 +1,7 @@
 package com.project.ecommerceapi.controller;
 
 import com.project.ecommerceapi.entity.ProductsEntity;
+import com.project.ecommerceapi.projection.ProductsAndSizesProjection;
 import com.project.ecommerceapi.service.ProductsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
+
+import static com.fasterxml.jackson.databind.jsonFormatVisitors.JsonValueFormat.UUID;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -26,7 +30,7 @@ public class ProductsController {
     public Page<ProductsEntity> findProductsPage(@RequestParam(defaultValue = "0") int page) {
         logger.info("Fetching products, page: {}", page);
         Pageable pageable = PageRequest.of(page, 10); // Nombre d'éléments par page, ici 10
-        Page<ProductsEntity> productsPage = productsService.findProductsPageAndSort(pageable);
+        Page<ProductsEntity> productsPage = productsService.findProductsWithSizesPageAndSort(pageable);
 
         // Log each fetched product
         productsPage.forEach(product -> {

@@ -3,6 +3,8 @@ package com.project.ecommerceapi.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 
@@ -13,6 +15,14 @@ public class ProductsEntity {
 
 
 
+    @JoinTable(
+            name = "product_have_sizes",
+            joinColumns = { @JoinColumn(name = "product_id", referencedColumnName = "id") },
+            inverseJoinColumns = { @JoinColumn(name = "size_id",  referencedColumnName = "id") }
+    )
+
+    @ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.ALL })
+    private Set<SizeEntity> sizes;
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
@@ -106,7 +116,13 @@ public class ProductsEntity {
         // Constructeur par défaut requis par Jackson pour la désérialisation
     }
 
+    public Set<SizeEntity> getSizes() {
+        return sizes;
+    }
 
+    public void setSizes(Set<SizeEntity> sizes) {
+        this.sizes = sizes;
+    }
     public UUID getId() {
         return id;
     }
