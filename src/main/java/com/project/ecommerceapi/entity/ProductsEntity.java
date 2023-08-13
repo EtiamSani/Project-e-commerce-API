@@ -115,13 +115,14 @@ public class ProductsEntity {
         // Constructeur par défaut requis par Jackson pour la désérialisation
     }
 
+    // Permet de récupérer les tailles !
     public Set<SizeEntity> getSizes() {
         return sizes;
     }
 
-    public void setSizes(Set<SizeEntity> sizes) {
-        this.sizes = sizes;
-    }
+//    public void setSizes(Set<SizeEntity> sizes) {
+//        this.sizes = sizes;
+//    }
     public UUID getId() {
         return id;
     }
