@@ -1,5 +1,7 @@
+CREATE SEQUENCE products_id_seq;
+
 CREATE TABLE Products (
-    id UUID PRIMARY KEY,
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     productName TEXT,
     price INT,
     description TEXT,

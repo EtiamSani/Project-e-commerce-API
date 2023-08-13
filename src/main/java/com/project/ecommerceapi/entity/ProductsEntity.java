@@ -21,7 +21,7 @@ public class ProductsEntity {
     @Column(name = "id", columnDefinition = "UUID")
     private UUID id;
 
-    @Column(name = "product_name")
+    @Column(name = "productname")
     private String productName;
 
     @Column(name = "price")
@@ -45,19 +45,19 @@ public class ProductsEntity {
     private String material;
     @Column(name = "gender")
     private String gender;
-    @Column(name = "discountPrice")
+    @Column(name = "discountprice")
     private int discountPrice;
-    @Column(name = "isNewArrival")
+    @Column(name = "isnewarrival")
     private boolean isNewArrival ;
-    @Column(name = "isFeatured")
+    @Column(name = "isfeatured")
     private boolean isFeatured ;
-    @Column(name = "isBestSeller")
+    @Column(name = "isbestseller")
     private boolean isBestSeller ;
     @Column(name = "tags")
     private String tags ;
     @Column(name = "images")
     private String images ;
-    @Column(name = "isAvailable")
+    @Column(name = "isavailable")
     private boolean isAvailable ;
 
 
