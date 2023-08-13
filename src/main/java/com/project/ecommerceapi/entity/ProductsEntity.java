@@ -39,8 +39,6 @@ public class ProductsEntity {
     private String brand;
     @Column(name = "color")
     private String color;
-    @Column(name = "size")
-    private String size;
     @Column(name = "material")
     private String material;
     @Column(name = "gender")
@@ -65,7 +63,7 @@ public class ProductsEntity {
 
 
 
-    public ProductsEntity(UUID id, String productName, int price, String description, int quantityInStock, String category, String brand, String color, String size, String material, String gender, int discountPrice, boolean isNewArrival, boolean isFeatured, boolean isBestSeller, String tags, String images, boolean isAvailable) {
+    public ProductsEntity(UUID id, String productName, int price, String description, int quantityInStock, String category, String brand, String color,  String material, String gender, int discountPrice, boolean isNewArrival, boolean isFeatured, boolean isBestSeller, String tags, String images, boolean isAvailable) {
         this.id = id;
         this.productName = productName;
         this.price = price;
@@ -74,7 +72,6 @@ public class ProductsEntity {
         this.category = category;
         this.brand = brand;
         this.color = color;
-        this.size = size;
         this.material = material;
         this.gender = gender;
         this.discountPrice = discountPrice;
@@ -86,7 +83,7 @@ public class ProductsEntity {
         this.isAvailable = isAvailable;
     }
 
-    public ProductsEntity(String productName, int price, String description, int quantityInStock, String category, String brand, String color, String size, String material, String gender, int discountPrice, boolean isNewArrival, boolean isFeatured, boolean isBestSeller, String tags, String images, boolean isAvailable) {
+    public ProductsEntity(String productName, int price, String description, int quantityInStock, String category, String brand, String color, String material, String gender, int discountPrice, boolean isNewArrival, boolean isFeatured, boolean isBestSeller, String tags, String images, boolean isAvailable) {
         this.productName = productName;
         this.price = price;
         this.description = description;
@@ -94,7 +91,6 @@ public class ProductsEntity {
         this.category = category;
         this.brand = brand;
         this.color = color;
-        this.size = size;
         this.material = material;
         this.gender = gender;
         this.discountPrice = discountPrice;
@@ -175,13 +171,6 @@ public class ProductsEntity {
         this.color = color;
     }
 
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
 
     public String getMaterial() {
         return material;
@@ -266,7 +255,6 @@ public class ProductsEntity {
                 ", category='" + category + '\'' +
                 ", brand='" + brand + '\'' +
                 ", color='" + color + '\'' +
-                ", size='" + size + '\'' +
                 ", material='" + material + '\'' +
                 ", gender='" + gender + '\'' +
                 ", discountPrice=" + discountPrice +

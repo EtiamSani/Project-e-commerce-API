@@ -36,6 +36,10 @@ VALUES
      80, 'Vêtements', 'AirCloud', 'Gris', 'Coton', 'Femmes', 20, true, false, true,
      'tshirt, décontracté, gris', '/images/tshirt-clouds-red-and-bleu.png', true),
 
+     ('e625f18d-966f-4e47-bd4b-1d225d2e0d6e', 'T-shirt motifs', 32,
+      -- Description du produit
+     'Ajoutez une touche d''originalité à votre tenue avec ce T-shirt motifs. Les motifs géométriques captivants créent un design moderne et audacieux. Que vous soyez en ville ou en soirée, ce T-shirt attirera tous les regards.', 100, 'Vêtements', 'PatternWear', 'Multicolore', 'Coton', 'Unisexe', 20, true, false, false, 'tshirt, motifs, géométrique', '/images/tshirt-patterns.png', true)
+
      ('d2c3e4f5-6a7b-8c9d-1e2f-3a4b5c6d7e8f', 'T-shirt à motif de cerf', 35,
      -- Description du produit
      'Laissez-vous enchanter par la majesté de la nature avec ce T-shirt à motif de cerf. Le cerf, symbole de grâce et de liberté, est magnifiquement illustré sur ce T-shirt. Les tons chauds et terreux rappellent l''ambiance apaisante des forêts. Portez ce T-shirt pour afficher votre amour de la faune et votre passion pour l''extérieur.',
@@ -59,6 +63,11 @@ VALUES
      'Une nouvelle version du T-shirt motif jardin, encore plus élégante et détaillée. Laissez-vous envoûter par la beauté de la nature avec ce T-shirt artistique. Les motifs floraux délicats ajoutent une touche d''élégance à votre tenue.',
      75, 'Vêtements', 'NatureWear', 'Blanc', 'Coton', 'Unisexe', 25, false, true, false,
      'tshirt, motif jardin, blanc', '/images/tshirt-garden-v2.png', true),
+
+     ('e9e0e05a-8275-4a3a-84e4-17e1e7753e3a', 'T-shirt motif guitare', 38,
+     -- Description du produit
+     'Laissez-vous emporter par la mélodie avec ce T-shirt motif guitare. Le design détaillé d''une guitare ajoute une touche de musique à votre style. Que vous soyez un mélomane passionné ou simplement en quête d''originalité, ce T-shirt est fait pour vous.', 95, 'Vêtements', 'MusicWear', 'Noir', 'Coton', 'Unisexe', 30, false, true, false, 'tshirt, motif guitare, musique', '/images/tshirt-guitar.png', true)
+
 
      ('7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f7', 'T-shirt motif super-héros', 40,
      -- Description du produit
@@ -222,39 +231,39 @@ VALUES
     ('bd4ff942-f1aa-2bf1-907c-9f5b7f18b8f7', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
     ('bd4ff942-f1aa-2bf1-907c-9f5b7f18b8f7', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1'),
     --
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1'),
+    ('11d1ee6d-418f-2bf1-907c-9f5b7f18b8f7', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
+    ('11d1ee6d-418f-2bf1-907c-9f5b7f18b8f7', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
+    ('11d1ee6d-418f-2bf1-907c-9f5b7f18b8f7', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
+    ('11d1ee6d-418f-2bf1-907c-9f5b7f18b8f7', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
+    ('11d1ee6d-418f-2bf1-907c-9f5b7f18b8f7', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1'),
     --
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1'),
+    ('7aefdc3b-5186-2bf1-907c-9f5b7f18b8f7', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
+    ('7aefdc3b-5186-2bf1-907c-9f5b7f18b8f7', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
+    ('7aefdc3b-5186-2bf1-907c-9f5b7f18b8f7', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
+    ('7aefdc3b-5186-2bf1-907c-9f5b7f18b8f7', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
+    ('7aefdc3b-5186-2bf1-907c-9f5b7f18b8f7', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1'),
     --
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1'),
+    ('9bfbecc2-b1c2-2bf1-907c-9f5b7f18b8f7', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
+    ('9bfbecc2-b1c2-2bf1-907c-9f5b7f18b8f7', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
+    ('9bfbecc2-b1c2-2bf1-907c-9f5b7f18b8f7', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
+    ('9bfbecc2-b1c2-2bf1-907c-9f5b7f18b8f7', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
+    ('9bfbecc2-b1c2-2bf1-907c-9f5b7f18b8f7', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1'),
     --
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1'),
+    ('e9f87a24-c178-2bf1-907c-9f5b7f18b8f7', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
+    ('e9f87a24-c178-2bf1-907c-9f5b7f18b8f7', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
+    ('e9f87a24-c178-2bf1-907c-9f5b7f18b8f7', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
+    ('e9f87a24-c178-2bf1-907c-9f5b7f18b8f7', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
+    ('e9f87a24-c178-2bf1-907c-9f5b7f18b8f7', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1'),
     --
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1'),
+    ('e9e0e05a-8275-4a3a-84e4-17e1e7753e3a', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
+    ('e9e0e05a-8275-4a3a-84e4-17e1e7753e3a', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
+    ('e9e0e05a-8275-4a3a-84e4-17e1e7753e3a', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
+    ('e9e0e05a-8275-4a3a-84e4-17e1e7753e3a', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
+    ('e9e0e05a-8275-4a3a-84e4-17e1e7753e3a', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1'),
     --
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
-    ('f6aeb17b-318e-4e47-b04d-8a10b570e7e2', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1');
+    ('e625f18d-966f-4e47-bd4b-1d225d2e0d6e', '5b5df509-1d19-2bf1-907c-9f5b7f18b8f1'),
+    ('e625f18d-966f-4e47-bd4b-1d225d2e0d6e', '1a19eddd-2f57-2bf1-907c-9f5b7f18b8f1'),
+    ('e625f18d-966f-4e47-bd4b-1d225d2e0d6e', '7ac6f8f7-3fc3-2bf1-907c-9f5b7f18b8f1'),
+    ('e625f18d-966f-4e47-bd4b-1d225d2e0d6e', '11d1ee6d-418f-2bf1-907c-9f5b7f18b8f1'),
+    ('e625f18d-966f-4e47-bd4b-1d225d2e0d6e', '7aefdc3b-5186-2bf1-907c-9f5b7f18b8f1');
 
