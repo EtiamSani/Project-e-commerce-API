@@ -11,11 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static com.fasterxml.jackson.databind.jsonFormatVisitors.JsonValueFormat.UUID;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -53,7 +51,6 @@ public class ProductsController {
             return ResponseEntity.notFound().build();
         }
     }
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<ProductsEntity> saveProducts(@RequestBody ProductsEntity productsEntity){
