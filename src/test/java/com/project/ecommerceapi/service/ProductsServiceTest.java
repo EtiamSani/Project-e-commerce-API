@@ -23,6 +23,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class ProductsServiceTest {
@@ -56,6 +57,18 @@ class ProductsServiceTest {
     }
 
     @Test
-    void findProductById() {
+    void canFindOneProductById() {
+        // Create a simulated ProductsEntity with a specific ID
+        UUID expectedId = UUID.randomUUID();
+        ProductsEntity simulatedProduct = new ProductsEntity();
+        simulatedProduct.setId(expectedId);
+
+        // Configure the mock productsRepository to return the simulated product
+        when(productsRepository.findById(expectedId)).thenReturn(Optional.of(simulatedProduct));
+        //when
+        Pageable pageable = PageRequest.of(0, 10); // Example page request
+        underTest.findProductById(expectedId);
+        //then
+        verify(productsRepository).findById(expectedId);
     }
 }
