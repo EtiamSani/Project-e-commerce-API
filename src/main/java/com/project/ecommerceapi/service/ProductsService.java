@@ -2,6 +2,7 @@ package com.project.ecommerceapi.service;
 
 import com.project.ecommerceapi.entity.ProductsEntity;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
@@ -19,5 +20,7 @@ public interface ProductsService {
     Page<ProductsEntity> findProductsWithSizesPageAndSort(Pageable pageable);
 
     public Optional<ProductsEntity> findProductById(UUID id);
+
+
 }
 
