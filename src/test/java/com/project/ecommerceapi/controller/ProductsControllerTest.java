@@ -26,9 +26,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -48,6 +46,11 @@ class ProductsControllerTest {
     private MockMvc mockMvc;
     @Autowired
     private MockMvc mvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @MockBean
     ProductsRepository productsRepository;
 
     @MockBean
@@ -82,7 +85,21 @@ class ProductsControllerTest {
     }
 
     @Test
-    void findProductById() {
+    void findProductById() throws Exception {
+        UUID productId = UUID.fromString("47896b26-b0c9-4877-90da-38749b9efebf");
+        ProductsEntity simulatedProduct = new ProductsEntity(productId, "Chemise en coton", 30, "Chemise en coton pour hommes", 50, "Vêtements", "Ma Marque", "Blanc", "Coton", "Hommes", 0, true, true, false, "tshirt", "http://example.com/images/chemise-coton-1.jpg", true);
+
+        when(productsService.findProductById(productId)).thenReturn(Optional.of(simulatedProduct));
+
+        mockMvc.perform(get("/api/v1/products/{id}", productId))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.id").value("47896b26-b0c9-4877-90da-38749b9efebf")) // Validate the item's id
+                .andExpect(jsonPath("$.productName").value("Chemise en coton")) // Validate the item's name
+                .andExpect(jsonPath("$.price").value(30)) // Validate the item's price
+                .andExpect(jsonPath("$.description").value("Chemise en coton pour hommes")); // Validate the item's description
+
+        verify(productsService, times(1)).findProductById(productId);
     }
 
     @Test
