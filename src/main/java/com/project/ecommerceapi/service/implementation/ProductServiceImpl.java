@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -37,6 +38,10 @@ public class ProductServiceImpl implements ProductsService {
 
     public Page<ProductsEntity> findProductsWithSizesPageAndSort(Pageable pageable) {
         return productsRepository.findAll(pageable);
+    }
+
+    public Optional<ProductsEntity> findProductById(UUID id) {
+        return productsRepository.findById(id);
     }
 
 }

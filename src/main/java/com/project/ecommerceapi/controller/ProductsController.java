@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static com.fasterxml.jackson.databind.jsonFormatVisitors.JsonValueFormat.UUID;
@@ -37,6 +38,20 @@ public class ProductsController {
         });
 
         return productsPage;
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductsEntity> findProductById(@PathVariable UUID id) {
+        logger.info("Fetching product by ID: {}", id);
+
+        Optional<ProductsEntity> productOptional = productsService.findProductById(id);
+
+        if (productOptional.isPresent()) {
+            ProductsEntity product = productOptional.get();
+            return ResponseEntity.ok(product);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
