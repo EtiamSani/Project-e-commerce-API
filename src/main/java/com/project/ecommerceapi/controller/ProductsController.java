@@ -25,9 +25,9 @@ public class ProductsController {
         this.productsService = productsService;
     }
     @GetMapping
-    public Page<ProductsEntity> findProductsPage(@RequestParam(defaultValue = "0") int page) {
+    public Page<ProductsEntity> findProductsPage(@RequestParam(defaultValue = "1") int page) {
         logger.info("Fetching products, page: {}", page);
-        Pageable pageable = PageRequest.of(page, 10); // Nombre d'éléments par page, ici 10
+        Pageable pageable = PageRequest.of(page- 1, 10); // Nombre d'éléments par page, ici 10
         Page<ProductsEntity> productsPage = productsService.findProductsWithSizesPageAndSort(pageable);
 
         // Log each fetched product
