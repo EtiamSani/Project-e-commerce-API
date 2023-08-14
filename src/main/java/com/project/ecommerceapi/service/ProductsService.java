@@ -14,7 +14,7 @@ public interface ProductsService {
     ProductsEntity saveProducts(ProductsEntity productsEntity);
 
 
-    Page<ProductsEntity> findProductsPageAndSort(Pageable pageable);
+//    Page<ProductsEntity> findProductsPageAndSort(Pageable pageable);
 
     Page<ProductsEntity> findProductsWithSizesPageAndSort(Pageable pageable);
 
