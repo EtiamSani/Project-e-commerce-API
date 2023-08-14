@@ -86,6 +86,18 @@ class ProductsControllerTest {
     }
 
     @Test
-    void saveProducts() {
+    void saveProducts() throws Exception {
+        		// Create the product entity
+		ProductsEntity productToSave = new ProductsEntity("Chemise en coton",30,"Chemise en coton pour hommes",50,"Vêtements","Ma Marque","Blanc","Coton","Hommes",0,true,true,false,"tshirt","http://example.com/images/chemise-coton-1.jpg",true);
+
+		// Convert the product entity to JSON using ObjectMapper
+		ObjectMapper objectMapper = new ObjectMapper();
+		String jsonProduct = objectMapper.writeValueAsString(productToSave);
+
+		// Perform the request and validate the response
+		mockMvc.perform(post("/api/v1/products")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(jsonProduct))
+				.andExpect(status().isCreated());
     }
 }
